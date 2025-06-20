@@ -1,1 +1,256 @@
-# my-first-project
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Portal - あなたの生成AIポータル</title>
+    <meta name="description" content="画像、動画、文章、UIデザインなど、様々な生成AIサービスをまとめたポータルサイト。各AIツールの機能やおすすめ理由を分かりやすく紹介しています。">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-left">
+            <button id="settings-toggle" class="header-icon-btn" aria-label="設定を開く">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+        <div class="logo-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-logo"><path d="M9.5 2c-1.32 0-2.5.7-3.25 1.75-1.5 2.08-1.5 5.02 0 7.1.75 1.06 1.93 1.76 3.25 1.76s2.5-.7 3.25-1.75c1.5-2.09 1.5-5.03 0-7.11C12 2.7 10.82 2 9.5 2z"></path><path d="M14.5 2c1.32 0 2.5.7 3.25 1.75 1.5 2.08 1.5 5.02 0 7.1-.75 1.06-1.93 1.76-3.25 1.76s-2.5-.7-3.25-1.75c-1.5-2.09-1.5-5.03 0-7.11C12 2.7 13.18 2 14.5 2z"></path><path d="M5 14v1c0 1.66 1.34 3 3 3h1.5"></path><path d="M19 14v1c0 1.66-1.34 3-3 3h-1.5"></path><path d="M12 18v4"></path><path d="M9.5 12H12v6"></path></svg>
+            <h1>AI Portal</h1>
+        </div>
+        <div class="header-right"></div> <!-- 中央寄せのためのスペーサー -->
+    </header>
+
+    <div id="settings-panel">
+        <div class="settings-header">
+            <h2>設定</h2>
+            <button id="settings-close" class="header-icon-btn" aria-label="設定を閉じる">&times;</button>
+        </div>
+        <div class="settings-content">
+            <div id="api-key-settings">
+                <label for="chat-api-key">OpenAI APIキー</label>
+                <div id="chat-api-key-block">
+                    <input type="password" id="chat-api-key" placeholder="sk-...">
+                    <button id="chat-api-key-save">保存</button>
+                </div>
+                <p class="settings-note">APIキーはブラウザ内に安全に保存され、外部に送信されることはありません。</p>
+            </div>
+        </div>
+    </div>
+    <div id="overlay"></div>
+
+    <div class="container">
+        <!-- テキスト生成 -->
+        <section class="category text-gen">
+            <h2>テキスト生成</h2>
+            <div class="feature-block">
+                <h3>できること</h3>
+                <ul class="feature-list">
+                    <li>質問の回答</li>
+                    <li>長文の要約</li>
+                    <li>アイデアの創出</li>
+                </ul>
+            </div>
+            <div class="service-block">
+                <h3>おすすめサイト</h3>
+                <ul class="service-list">
+                    <li><a href="https://chat.openai.com/" target="_blank"><img class="favicon" data-url="https://chat.openai.com/">ChatGPT</a></li>
+                    <li><a href="https://claude.ai/" target="_blank"><img class="favicon" data-url="https://claude.ai/">Claude</a></li>
+                    <li><a href="https://gemini.google.com/" target="_blank"><img class="favicon" data-url="https://gemini.google.com/">Gemini（旧：Bard）</a></li>
+                    <li><a href="https://copilot.microsoft.com/" target="_blank"><img class="favicon" data-url="https://copilot.microsoft.com/">Microsoft Copilot</a></li>
+                    <li><a href="https://cohere.com/command" target="_blank"><img class="favicon" data-url="https://cohere.com/">Cohere Command R+</a></li>
+                    <li><a href="https://llama.meta.com/" target="_blank"><img class="favicon" data-url="https://llama.meta.com/">Llama</a></li>
+                </ul>
+            </div>
+        </section>
+        <!-- 画像生成 -->
+        <section class="category image-gen">
+            <h2>画像生成</h2>
+            <div class="feature-block">
+                <h3>できること</h3>
+                <ul class="feature-list">
+                    <li>画像の自動生成</li>
+                    <li>既存の画像編集</li>
+                    <li>複数の画像パターン生成</li>
+                </ul>
+            </div>
+            <div class="service-block">
+                <h3>おすすめサイト</h3>
+                <ul class="service-list">
+                    <li><a href="https://openai.com/dall-e-3/" target="_blank"><img class="favicon" data-url="https://openai.com/dall-e-3/">DALL·E 3</a></li>
+                    <li><a href="https://www.midjourney.com/" target="_blank"><img class="favicon" data-url="https://www.midjourney.com/">Midjourney</a></li>
+                    <li><a href="https://imagen.research.google/" target="_blank"><img class="favicon" data-url="https://imagen.research.google/">Google Imagen</a></li>
+                    <li><a href="https://www.canva.com/ja_jp/ai-image-generator/" target="_blank"><img class="favicon" data-url="https://www.canva.com/ja_jp/ai-image-generator/">Text to Image（Canva AI）</a></li>
+                    <li><a href="https://www.adobe.com/jp/products/photoshop.html" target="_blank"><img class="favicon" data-url="https://www.adobe.com/jp/products/photoshop.html">Adobe Photoshop</a></li>
+                    <li><a href="https://www.starryai.com/" target="_blank"><img class="favicon" data-url="https://www.starryai.com/">starryai</a></li>
+                    <li><a href="https://novelai.net/" target="_blank"><img class="favicon" data-url="https://novelai.net/">NovelAI</a></li>
+                </ul>
+            </div>
+        </section>
+        <!-- 動画生成 -->
+        <section class="category video-gen">
+            <h2>動画生成</h2>
+            <div class="feature-block">
+                <h3>できること</h3>
+                <ul class="feature-list">
+                    <li>動画の生成（数秒〜1分程度）</li>
+                    <li>アバターの生成</li>
+                    <li>既存動画の編集</li>
+                </ul>
+            </div>
+            <div class="service-block">
+                <h3>おすすめサイト</h3>
+                <ul class="service-list">
+                    <li><a href="https://research.runwayml.com/gen2" target="_blank"><img class="favicon" data-url="https://research.runwayml.com/gen2">Runway Gen-2</a></li>
+                    <li><a href="https://vrew.voyagerx.com/ja/" target="_blank"><img class="favicon" data-url="https://vrew.voyagerx.com/ja/">Vrew</a></li>
+                    <li><a href="https://openai.com/sora/" target="_blank"><img class="favicon" data-url="https://openai.com/sora/">Sora</a></li>
+                    <li><a href="https://www.d-id.com/" target="_blank"><img class="favicon" data-url="https://www.d-id.com/">D-ID</a></li>
+                    <li><a href="https://www.synthesia.io/" target="_blank"><img class="favicon" data-url="https://www.synthesia.io/">Synthesia</a></li>
+                    <li><a href="https://www.heygen.com/" target="_blank"><img class="favicon" data-url="https://www.heygen.com/">HeyGen</a></li>
+                    <li><a href="https://spiritme.tech/" target="_blank"><img class="favicon" data-url="https://spiritme.tech/">Spirit Me</a></li>
+                </ul>
+            </div>
+        </section>
+        <!-- 音声生成 -->
+        <section class="category audio-gen">
+            <h2>音声生成</h2>
+            <div class="feature-block">
+                <h3>できること</h3>
+                <ul class="feature-list">
+                    <li>リアルな音声出力</li>
+                    <li>デジタル音声の生成</li>
+                </ul>
+            </div>
+            <div class="service-block">
+                <h3>おすすめサイト</h3>
+                <ul class="service-list">
+                    <li><a href="https://coqui.ai/" target="_blank"><img class="favicon" data-url="https://coqui.ai/">Coqui</a></li>
+                    <li><a href="https://aws.amazon.com/jp/polly/" target="_blank"><img class="favicon" data-url="https://aws.amazon.com/jp/polly/">Amazon Polly</a></li>
+                    <li><a href="https://elevenlabs.io/" target="_blank"><img class="favicon" data-url="https://elevenlabs.io/">ElevenLabs</a></li>
+                </ul>
+            </div>
+        </section>
+        <!-- 化合物生成 -->
+        <section class="category compound-gen">
+            <h2>化合物生成</h2>
+            <div class="feature-block">
+                <h3>できること</h3>
+                <ul class="feature-list">
+                    <li>データの統合・分析</li>
+                    <li>創薬</li>
+                    <li>化合物の同定</li>
+                </ul>
+            </div>
+            <div class="service-block">
+                <h3>おすすめサイト</h3>
+                <ul class="service-list">
+                    <li><a href="https://datagrid.co.jp/drugfinder/" target="_blank"><img class="favicon" data-url="https://datagrid.co.jp/drugfinder/">DATAGRID DrugFinder</a></li>
+                </ul>
+            </div>
+        </section>
+        <!-- プロンプト集 -->
+        <section class="category prompt-gen">
+            <h2>プロンプト集</h2>
+            <div class="feature-block">
+                <h3>できること</h3>
+                <ul class="feature-list">
+                    <li>さまざまなAIサービス用のプロンプトを検索・閲覧</li>
+                    <li>用途別・目的別に最適なプロンプトを探せる</li>
+                    <li>自分のプロンプトを投稿・共有</li>
+                </ul>
+            </div>
+            <div class="service-block">
+                <h3>おすすめサイト</h3>
+                <ul class="service-list">
+                    <li><a href="https://searchpromptly.com/" target="_blank"><img class="favicon" data-url="https://searchpromptly.com/">SearchPromptly（プロンプト集）</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- UIデザイン -->
+        <section class="category ui-design-gen">
+            <h2>UIデザイン</h2>
+            <div class="feature-block">
+                <h3>できること</h3>
+                <ul class="feature-list">
+                    <li>AIでUIデザインを自動生成</li>
+                    <li>手書きのスケッチをデジタル化</li>
+                    <li>スクリーンショットからモックアップを作成</li>
+                </ul>
+            </div>
+            <div class="service-block">
+                <h3>おすすめサイト</h3>
+                <ul class="service-list">
+                    <li><a href="https://uizard.io/" target="_blank"><img class="favicon" data-url="https://uizard.io/">Uizard</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 図解・資料生成AI -->
+        <section class="category diagram-gen">
+            <h2>図解・資料生成AI</h2>
+            <div class="feature-block">
+                <h3>できること</h3>
+                <ul class="feature-list">
+                    <li>テキストからプレゼン資料を自動生成</li>
+                    <li>アイデアを元にマインドマップや図解を作成</li>
+                    <li>複雑な情報を視覚的に整理</li>
+                </ul>
+            </div>
+            <div class="service-block">
+                <h3>おすすめサイト</h3>
+                <ul class="service-list">
+                    <li><a href="https://www.napkin.ai/" target="_blank"><img class="favicon" data-url="https://www.napkin.ai/">Napkin.ai</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Webホスティング -->
+        <section class="category web-hosting-gen">
+            <h2>Webホスティング</h2>
+            <div class="feature-block">
+                <h3>できること・特徴</h3>
+                <ul class="feature-list">
+                    <li>GitHubやGitLabと連携し、コードのプッシュだけで自動デプロイ</li>
+                    <li>CDN最適化による世界中への高速レスポンス</li>
+                    <li>Node.jsベースのAPIエンドポイント（サーバーレス機能）を簡単に作成</li>
+                    <li>アクセス集中時も自動スケーリングでパフォーマンス維持</li>
+                    <li>プルリクエストごとにプレビューURLを自動生成</li>
+                    <li>無料プランでも独自ドメイン設定が可能</li>
+                    <li>商用利用も無料プランでOK（大規模用途は有料推奨）</li>
+                </ul>
+            </div>
+            <div class="service-block">
+                <h3>おすすめサイト</h3>
+                <ul class="service-list">
+                    <li>
+                        <a href="https://vercel.com/" target="_blank">
+                            <img class="favicon" data-url="https://vercel.com/">Vercel
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- Chat Feature -->
+    <button id="chat-toggle">💬</button>
+    <div id="chat-container">
+        <div class="chat-header">AIアシスタント</div>
+        <div class="chat-disclaimer">
+            <p>左上の設定からAPIキーを保存すると、AIとの対話が可能になります。</p>
+        </div>
+        <div id="chat-messages">
+            <div class="message bot">こんにちは！どんな質問でもどうぞ。</div>
+        </div>
+        <div id="chat-input-container">
+            <input type="text" id="chat-input" placeholder="メッセージを入力...">
+            <button id="chat-send">➤</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html> 
